@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/mystyle.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"  type="text/javascript"></script>
+ <!--  --script src="/script/jquery.js"></script-->
+</head>
+
+<body>
+<h1>welcome to our music website</h1>
+  
+  <div class="main">
+
+    <form class="form1">
+      <input class="un " type="text" align="center" id ="email" placeholder="Username">
+      <input class="pass" type="password" align="center" id="password" placeholder="Password">
+      
+   
+
+      <button id="signup" class="submit"><a href="signup.html">sign up</a></button>
+    <button id="signin" class="submit"><a href="home.html">sign in</a></button>
+     
+   
+    
+	<script>
+		
+		$(document).ready(function (){
+		
+		$("#login").on('click',function(){
+			var password= $("#password").val();
+			var email = $("#email").val();
+			if(password =="" || email == ""){
+				alert("empty try again");
+				
+			}else{
+				
+				 $.ajax({
+						type :"GET",
+		                url: "/admin/"+email+"/"+password,
+		                dataType:'json',
+		                data:data,
+		                success:function(data){
+		                    alert("good");
+		                    top.location.href = 'index.html';
+		                    
+		                
+		            },error: function(jqXHR,testStatus,errorThrown){
+		            	alert("failed !!!");
+		            	console.log(error)
+		            }
+		         });
+			}
+		});
+		
+	});
+</script>	
+	
+   
+      
+
+           
+
+            
+         
+    </div>
+  
+</body>
+</html>
